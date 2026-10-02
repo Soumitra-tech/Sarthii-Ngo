@@ -4,7 +4,7 @@ import { galleryImages } from '@/data/content';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 export function Gallery() {
-  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState(null);
   const { ref, isVisible } = useScrollReveal();
 
   const closeLightbox = useCallback(() => setLightboxIndex(null), []);
@@ -24,7 +24,7 @@ export function Gallery() {
   // Keyboard navigation for lightbox
   useEffect(() => {
     if (lightboxIndex === null) return;
-    const onKey = (e: KeyboardEvent) => {
+    const onKey = (e) => {
       if (e.key === 'Escape') closeLightbox();
       if (e.key === 'ArrowRight') nextImage();
       if (e.key === 'ArrowLeft') prevImage();

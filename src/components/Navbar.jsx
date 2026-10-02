@@ -22,7 +22,7 @@ export function Navbar() {
     };
   }, [menuOpen]);
 
-  const handleNavClick = (href: string) => {
+  const handleNavClick = (href) => {
     setMenuOpen(false);
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -47,7 +47,7 @@ export function Navbar() {
           className="flex items-center gap-2.5"
           aria-label={`${siteConfig.name} home`}
         >
-          <Lotus className="w-9 h-9 shrink-0" />
+          <Lotus className="w-16 h-16 shrink-0" />
           <span
             className={`font-serif text-2xl font-bold tracking-tight transition-colors duration-300 ${
               scrolled ? 'text-primary-600' : 'text-white'

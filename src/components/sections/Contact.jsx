@@ -10,23 +10,9 @@ import {
 } from 'lucide-react';
 import { siteConfig, contactFormPurposes } from '@/data/content';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { supabase } from '@/lib/supabaseClient';
 
-interface FormState {
-  name: string;
-  email: string;
-  phone: string;
-  purpose: string;
-  message: string;
-}
-
-interface FormErrors {
-  name?: string;
-  email?: string;
-  phone?: string;
-  message?: string;
-}
-
-const initialState: FormState = {
+const initialState = {
   name: '',
   email: '',
   phone: '',
@@ -36,13 +22,13 @@ const initialState: FormState = {
 
 export function Contact() {
   const { ref, isVisible } = useScrollReveal();
-  const [form, setForm] = useState<FormState>(initialState);
-  const [errors, setErrors] = useState<FormErrors>({});
+  const [form, setForm] = useState(initialState);
+  const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
-  const validate = (): FormErrors => {
-    const errs: FormErrors = {};
+  const validate = () => {
+    const errs = {};
     if (!form.name.trim()) errs.name = 'Please enter your name';
     if (!form.email.trim()) {
       errs.email = 'Please enter your email';
@@ -58,26 +44,32 @@ export function Contact() {
     return errs;
   };
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
-    if (errors[name as keyof FormErrors]) {
+    if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const errs = validate();
     setErrors(errs);
     if (Object.keys(errs).length > 0) return;
 
     setSubmitting(true);
-    // Placeholder for future backend / email integration.
-    // Replace with a Supabase insert or edge function call when ready.
-    await new Promise((resolve) => setTimeout(resolve, 800));
+
+    const { error } = await supabase
+      .from('contact_submissions')
+      .insert([form]);
+
+    if (error) {
+      console.error('Supabase error:', error);
+      setSubmitting(false);
+      return;
+    }
+
     setSubmitting(false);
     setSubmitted(true);
     setForm(initialState);
@@ -123,9 +115,11 @@ export function Contact() {
           <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-accent-500">
             Get In Touch
           </p>
+
           <h2 className="font-serif text-3xl font-bold text-primary-700 sm:text-4xl">
             Contact Us
           </h2>
+
           <p className="mt-4 text-charcoal-500">
             Whether you want to volunteer, partner, or simply learn more — we&rsquo;d love to hear from you.
           </p>
@@ -148,10 +142,12 @@ export function Contact() {
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary-50 ring-1 ring-primary-100 transition-colors group-hover:bg-primary-600">
                       <Icon className="h-5 w-5 text-primary-600 transition-colors group-hover:text-white" />
                     </div>
+
                     <div>
                       <p className="text-xs font-semibold uppercase tracking-wide text-charcoal-400">
                         {item.label}
                       </p>
+
                       <p className="text-base font-medium text-charcoal-700">
                         {item.value}
                       </p>
@@ -201,6 +197,7 @@ export function Contact() {
                   <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-charcoal-600">
                     Name
                   </label>
+
                   <input
                     id="name"
                     name="name"
@@ -214,6 +211,7 @@ export function Contact() {
                         : 'border-charcoal-400/20 focus:border-primary-500'
                     }`}
                   />
+
                   {errors.name && (
                     <p className="mt-1 flex items-center gap-1 text-xs text-red-500">
                       <AlertCircle className="h-3.5 w-3.5" />
@@ -228,6 +226,7 @@ export function Contact() {
                     <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-charcoal-600">
                       Email
                     </label>
+
                     <input
                       id="email"
                       name="email"
@@ -241,6 +240,7 @@ export function Contact() {
                           : 'border-charcoal-400/20 focus:border-primary-500'
                       }`}
                     />
+
                     {errors.email && (
                       <p className="mt-1 flex items-center gap-1 text-xs text-red-500">
                         <AlertCircle className="h-3.5 w-3.5" />
@@ -248,10 +248,12 @@ export function Contact() {
                       </p>
                     )}
                   </div>
+
                   <div>
                     <label htmlFor="phone" className="mb-1.5 block text-sm font-medium text-charcoal-600">
                       Phone
                     </label>
+
                     <input
                       id="phone"
                       name="phone"
@@ -265,6 +267,7 @@ export function Contact() {
                           : 'border-charcoal-400/20 focus:border-primary-500'
                       }`}
                     />
+
                     {errors.phone && (
                       <p className="mt-1 flex items-center gap-1 text-xs text-red-500">
                         <AlertCircle className="h-3.5 w-3.5" />
@@ -279,6 +282,7 @@ export function Contact() {
                   <label htmlFor="purpose" className="mb-1.5 block text-sm font-medium text-charcoal-600">
                     I want to&hellip;
                   </label>
+
                   <select
                     id="purpose"
                     name="purpose"
@@ -299,6 +303,7 @@ export function Contact() {
                   <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-charcoal-600">
                     Message
                   </label>
+
                   <textarea
                     id="message"
                     name="message"
@@ -312,6 +317,7 @@ export function Contact() {
                         : 'border-charcoal-400/20 focus:border-primary-500'
                     }`}
                   />
+
                   {errors.message && (
                     <p className="mt-1 flex items-center gap-1 text-xs text-red-500">
                       <AlertCircle className="h-3.5 w-3.5" />

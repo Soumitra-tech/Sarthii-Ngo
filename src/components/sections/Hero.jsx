@@ -2,7 +2,7 @@ import { ArrowRight, ChevronDown } from 'lucide-react';
 import { heroContent } from '@/data/content';
 
 export function Hero() {
-  const scrollTo = (href: string) => {
+  const scrollTo = (href) => {
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };

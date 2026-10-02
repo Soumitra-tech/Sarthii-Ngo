@@ -2,10 +2,10 @@ import { useEffect, useRef, useState } from 'react';
 
 // Intersection-Observer-based scroll reveal hook.
 // Returns a ref to attach to any element and a boolean for visibility.
-export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(
+export function useScrollReveal(
   threshold = 0.15
 ) {
-  const ref = useRef<T>(null);
+  const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {

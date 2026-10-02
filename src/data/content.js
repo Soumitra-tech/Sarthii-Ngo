@@ -1,8 +1,3 @@
-// ============================================================
-// Saarthii — Central content file
-// Edit values here to update the site. Do not edit components.
-// ============================================================
-
 export const siteConfig = {
   name: 'Saarthii',
   tagline: 'Path of Happiness',
@@ -37,9 +32,9 @@ export const heroContent = {
   primaryBtn: 'Join Hands With Us',
   secondaryBtn: 'See Our Work',
   image:
-    'https://images.pexels.com/photos/33808945/pexels-photo-33808945.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    ' /group.jpeg',
   imageAlt:
-    'Group of women in colorful sarees celebrating outdoors in an Indian community',
+    'Group of women in colorful sarees celebrating in an Indian community',
 };
 
 export const aboutContent = {
@@ -89,7 +84,7 @@ export const founderMessage = {
   name: 'Pooja Agarwal',
   title: 'Founder, Saarthii',
   image:
-    'https://images.pexels.com/photos/17450830/pexels-photo-17450830.jpeg?auto=compress&cs=tinysrgb&w=800',
+    ' /founder.jpeg',
   imageAlt: 'Portrait of Pooja Agarwal, Founder of Saarthii',
   message:
     'At Saarthii, our mission is to uplift and empower women through dedicated social initiatives, education, and skill development. With years of experience in leading impactful events in collaboration with government bodies, Tata Steel, and various NGOs, I\u2019ve witnessed firsthand the power of collective action in transforming lives. Saarthii stands as a beacon of hope and opportunity, especially for young girls and women seeking support, guidance, and growth. We believe in nurturing potential and building resilient communities. I have also ventured into storytelling as the producer and director of the acclaimed short film Kannaki, which highlights strong cultural narratives. Together, we strive to create a future where every woman leads with confidence and dignity.',
@@ -102,12 +97,12 @@ export const ourWork = [
     title: 'Social Welfare Initiatives',
     items: [
       'Ration kit distributions',
-      'Free fogging to fight dengue',
+      'Blood donation camps',
       'River clean-up drives',
       'Ayushman card camps',
     ],
     image:
-      'https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=1000',
+      ' /food.jpeg',
     imageAlt: 'Volunteers distributing aid at an outdoor donation center',
     caption: 'Community welfare in action',
   },
@@ -133,7 +128,7 @@ export const ourWork = [
       'Moral, cultural, and religious teachings rooted in Hindu values',
     ],
     image:
-      'https://images.pexels.com/photos/20556421/pexels-photo-20556421.jpeg?auto=compress&cs=tinysrgb&w=1000',
+      ' /school.jpeg',
     imageAlt: 'Group of happy Indian children learning in a school setting',
     caption: 'Nurturing young minds',
   },
@@ -142,7 +137,7 @@ export const ourWork = [
 // Gallery — swap these URLs and captions with real photos
 export const galleryImages = [
   {
-    url: 'https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    url: ' /ration.jpeg',
     alt: 'Volunteers distributing aid at an outdoor donation center',
     caption: 'Ration kit distribution drive',
   },
@@ -152,47 +147,47 @@ export const galleryImages = [
     caption: 'Stitching & tailoring training',
   },
   {
-    url: 'https://images.pexels.com/photos/20556421/pexels-photo-20556421.jpeg?auto=compress&cs=tinysrgb&w=1000',
-    alt: 'Group of happy Indian children learning in a school setting',
+    url: ' /gift.jpeg',
+    alt: 'Group of happy Indian children accepting gift',
     caption: 'Children\u2019s education program',
   },
   {
-    url: 'https://images.pexels.com/photos/7156163/pexels-photo-7156163.jpeg?auto=compress&cs=tinysrgb&w=1000',
-    alt: 'Volunteers organizing donation boxes with clothes and food items',
-    caption: 'Donation sorting and packing',
+    url: ' /clean.jpeg',
+    alt: 'Volunteers clean the rivers',
+    caption: 'River clean-up drives',
   },
   {
-    url: 'https://images.pexels.com/photos/3231359/pexels-photo-3231359.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    url: ' /school.jpeg',
     alt: 'Group of Indian schoolgirls in uniform listening in a classroom',
     caption: 'Classroom learning session',
   },
   {
-    url: 'https://images.pexels.com/photos/36739080/pexels-photo-36739080.jpeg?auto=compress&cs=tinysrgb&w=1000',
-    alt: 'Rajasthani mothers and children at a community gathering',
-    caption: 'Community engagement event',
+    url: ' /blood.jpeg',
+    alt: 'Volunteer donating blood',
+    caption: 'Blood donation camp',
   },
   {
-    url: 'https://images.pexels.com/photos/7998239/pexels-photo-7998239.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    url: ' /skill.jpeg',
     alt: 'Women working on sewing patterns with measuring tape and fabric',
     caption: 'Skill development workshop',
   },
   {
-    url: 'https://images.pexels.com/photos/37495850/pexels-photo-37495850.jpeg?auto=compress&cs=tinysrgb&w=1000',
-    alt: 'A large group of people sitting outdoors under a tree',
+    url: ' /women.jpeg',
+    alt: 'A large group of people standing and listening',
     caption: 'Community meeting in rural area',
   },
   {
-    url: 'https://images.pexels.com/photos/7156169/pexels-photo-7156169.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    url: ' /tree.jpeg',
     alt: 'Volunteers organizing donation boxes filled with essentials',
-    caption: 'Relief supply organization',
+    caption: 'Future & Environmental Impact',
   },
   {
-    url: 'https://images.pexels.com/photos/35558791/pexels-photo-35558791.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    url: ' /child.jpeg',
     alt: 'Young students writing on slates in a village school in India',
     caption: 'Rural education outreach',
   },
   {
-    url: 'https://images.pexels.com/photos/6646873/pexels-photo-6646873.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    url: ' /food.jpeg',
     alt: 'Group of diverse volunteers organizing food donations',
     caption: 'Food donation drive',
   },

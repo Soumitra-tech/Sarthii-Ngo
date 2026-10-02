@@ -1,10 +1,9 @@
 import { Briefcase, School, Check, Sparkles } from 'lucide-react';
-import type { ComponentType } from 'react';
 import { upcomingProjects, whyTheseProjects } from '@/data/content';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { Lotus } from '@/components/Lotus';
 
-const iconMap: Record<string, ComponentType<{ className?: string }>> = {
+const iconMap = {
   Briefcase,
   School,
 };

@@ -1,9 +1,8 @@
 import { BookOpen, HeartHandshake, Scale, Sparkles } from 'lucide-react';
-import type { ComponentType } from 'react';
 import { coreValues } from '@/data/content';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 
-const iconMap: Record<string, ComponentType<{ className?: string }>> = {
+const iconMap = {
   Sparkles,
   BookOpen,
   Scale,

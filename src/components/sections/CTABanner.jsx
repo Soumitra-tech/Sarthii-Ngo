@@ -6,7 +6,7 @@ import { Lotus } from '@/components/Lotus';
 export function CTABanner() {
   const { ref, isVisible } = useScrollReveal();
 
-  const scrollTo = (href: string) => {
+  const scrollTo = (href) => {
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };

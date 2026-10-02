@@ -3,7 +3,7 @@ import { siteConfig, navLinks } from '@/data/content';
 import { Lotus } from '@/components/Lotus';
 
 export function Footer() {
-  const handleNavClick = (href: string) => {
+  const handleNavClick = (href) => {
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };

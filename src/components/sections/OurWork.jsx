@@ -5,12 +5,11 @@ import {
   Scissors,
   Check,
 } from 'lucide-react';
-import type { ComponentType } from 'react';
 import { ourWork } from '@/data/content';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { Lotus } from '@/components/Lotus';
 
-const iconMap: Record<string, ComponentType<{ className?: string }>> = {
+const iconMap = {
   HandHeart,
   Scissors,
   GraduationCap,
