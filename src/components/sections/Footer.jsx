@@ -114,7 +114,7 @@ export function Footer() {
         <div className="mt-12 border-t border-white/10 pt-6">
           <div className="flex flex-col items-center justify-between gap-3 sm:flex-row">
             <p className="text-sm">
-              &copy; 2025 {siteConfig.name}. All rights reserved.
+              &copy; 2026 {siteConfig.name}. All rights reserved.
             </p>
             <p className="flex items-center gap-1.5 text-sm">
               Made with <Heart className="h-4 w-4 fill-accent-400 text-accent-400" /> for a better tomorrow
